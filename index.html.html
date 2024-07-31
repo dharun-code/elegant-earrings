@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Earrings</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+        header { background-color: #E9D48E; padding: 20px; text-align: center; border-bottom: 1px solid #ddd; }
+        header h1 { margin: 0; font-size: 2.5em; }
+        nav { margin-top: 10px; }
+        nav a { text-decoration: none; color: #007bff; margin: 0 15px; cursor: pointer; }
+        nav a:hover { text-decoration: underline; }
+        main { padding: 20px; text-align: center; }
+        footer { background-color: #E9D48E; padding: 20px; text-align: center; border-top: 1px solid #ddd; }
+        footer p { margin: 0; }
+        .hero { margin-bottom: 20px; }
+        .hero h2 { color: #aa336a; }
+        .catalog-item { border: 1px solid #ddd; border-radius: 5px; padding: 10px; margin-bottom: 20px; text-align: center; }
+        .catalog-item img { width: 15%; height: auto; border-bottom: 1px solid #ddd; }
+        .catalog-item h3 { margin: 10px 0; }
+        .catalog-item p { color: #555; }
+        .catalog-item button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        .catalog-item button:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f8f9fa; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .total { font-size: 1.5em; text-align: right; margin-top: 20px; }
+        .checkout-button { margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        .checkout-button:hover { background-color: #0056b3; }
+        .remove-button { background-color: #dc3545; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+        .remove-button:hover { background-color: #c82333; }
+        form { max-width: 400px; margin: 0 auto; }
+        form label { display: block; margin-top: 10px; }
+        form input { width: 100%; padding: 8px; margin-top: 5px; }
+        form button { margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        form button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>𝒆𝒍𝒆𝒈𝒂𝒏𝒕 𝒆𝒂𝒓𝒓𝒊𝒏𝒈𝒔</h1>
+        <nav>
+            <a onclick="showSection('home')">Home</a>
+            <a onclick="showSection('catalog')">Catalog</a>
+            <a onclick="showSection('register')">Register</a>
+            <a onclick="showSection('login')">Login</a>
+            <a onclick="showSection('cart')">Cart</a>
+            <a onclick="showSection('about')">About Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section">
+            <div class="hero">
+                <h2>Welcome to Elegant Earrings!</h2>
+                <p>Browse our latest collections of stunning earrings designed for every occasion.</p>
+            </div>
+            <section>
+                <h3>Featured Collections</h3>
+                <p>Discover our curated selections of beautiful earrings that are perfect for any occasion.</p>
+            </section>
+        </section>
+
+        <section id="catalog" class="section" style="display:none;">
+            <h2>Catalog</h2>
+            <div class="catalog-item">
+                <img src="earring1.jpg" alt="Gold Hoop Earrings">
+                <h3>Gold Hoop Earrings</h3>
+                <p>Rs.399</p>
+                <button onclick="addToCart('Gold Hoop Earrings', 399.00)">Add to Cart</button>
+            </div>
+            <div class="catalog-item">
+                <img src="earring2.jpg" alt="Sapphire Drop Earrings">
+                <h3>Sapphire Drop Earrings</h3>
+                <p>Rs.499</p>
+                <button onclick="addToCart('Sapphire Drop Earrings', 499.00)">Add to Cart</button>
+            </div>
+            <div class="catalog-item">
+                <img src="earring3.jpg" alt="Cluster Earrings">
+                <h3>Cluster Earrings</h3>
+                <p>Rs.599</p>
+                <button onclick="addToCart('Cluster Earrings', 599.00)">Add to Cart</button>
+            </div>
+        </section>
+
+        <section id="register" class="section" style="display:none;">
+            <h2>Register</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="login" class="section" style="display:none;">
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="cart" class="section" style="display:none;">
+            <h2>Your Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Items will be dynamically added here -->
+                </tbody>
+            </table>
+            <div class="total">
+                <p><strong>Total Amount: <span id="total-amount">₹0.00</span></strong></p>
+            </div>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </section>
+
+        <section id="about" class="section" style="display:none;">
+            <h2>About Us</h2>
+            <p>Welcome to Elegant Earrings! At Elegant Earrings, we believe that every pair of earrings tells a story. Since our inception in 2024, our mission has been to bring timeless elegance and modern flair together in our carefully curated collections.</p>
+            <p>We are dedicated to offering a range of exquisite earrings that cater to every taste, occasion, and style. Our team is passionate about providing the highest quality and most fashionable pieces to enhance your look and make every moment special.</p>
+            <p>Thank you for choosing Elegant Earrings. We look forward to helping you find the perfect pair!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Elegant Earrings. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function addToCart(item, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ item: item, price: price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+            const cartItems = document.getElementById('cart-items');
+
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.item}</td>
+                    <td>₹${item.price.toFixed(2)}</td>
+                    <td><button class="remove-button" data-index="${index}">Remove</button></td>
+                `;
+                cartItems.appendChild(row);
+                total += item.price;
+            });
+
+            document.getElementById('total-amount').textContent = `₹${total.toFixed(2)}`;
+            setupRemoveButtons();
+        }
+
+        function setupRemoveButtons() {
+            const removeButtons = document.querySelectorAll('.remove-button');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = button.getAttribute('data-index');
+                    removeFromCart(index);
+                });
+            });
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove item at index
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart(); // Reload cart to update view
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCart();
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
